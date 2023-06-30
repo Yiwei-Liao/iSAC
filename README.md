@@ -6,9 +6,18 @@ Different from traditional communication solutions, the source encoder of the pr
 ```shell
 pip install -r requirements.txt
 ```
-#### 1. download the dataset and unzip 
-Please download the datasets in this repository [DeepPath](https://github.com/xwhan/DeepPath/tree/master)
-#### 2. to train the model
+#### 1. download the dataset for Inference
+download the dataset and unzip in ./SemanticInference
+[FB15K237](https://drive.google.com/file/d/1klWL11nW3ZS6b2MtLW0MHnXu-XlJqDyA/view) [NELL-995](https://paperswithcode.com/dataset/nell-995)
+#### 2. to train the Semantic Encoder
+in ./SemanticEncoder
+```shell
+# run
+python train_transe --dim 200 --gpu 1 --dataset FB15K237
+```
+
+#### 2. to train the Semantic Comparator and Interpreter
+in ./SemanticInference
 ```shell
 # run
 python sl_policy.py $relation
@@ -24,14 +33,12 @@ python fact_prediction_eval.py $relation
 ./link_prediction_eval.sh ${relation_name}
 ```
 
-#### 4. to train the embeddings
-```shell
-# run
-python train_transe_FB15K237 --Dim 200 --GPU 1
-```
 ## If you use our code, please cite the paper
 ```
+@article{xiao2023reasoning,
+  title={Reasoning over the Air: A Reasoning-based Implicit Semantic-Aware Communication Framework},
+  author={Xiao, Yong and Liao, Yiwei and Li, Yingyu and Shi, Guangming and Poor, H Vincent and Saad, Walid and Debbah, Merouane and Bennis, Mehdi},
+  journal={arXiv preprint arXiv:2306.11229},
+  year={2023}
+}
 ```
-## Ackonwledgement
-- [DeepPath](https://github.com/xwhan/DeepPath/tree/master)
-- [OpenKE](https://github.com/thunlp/OpenKE)

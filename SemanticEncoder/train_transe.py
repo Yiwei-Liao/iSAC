@@ -2,23 +2,25 @@ import argparse
 import pandas as pd
 import os
 import time
-import openke
-from openke.config import Trainer, Tester
-from openke.module.model import TransE
-from openke.module.loss import MarginLoss
-from openke.module.strategy import NegativeSampling
-from openke.data import TrainDataLoader, TestDataLoader
+import source
+from source.config import Trainer, Tester
+from source.module.model import TransE
+from source.module.loss import MarginLoss
+from source.module.strategy import NegativeSampling
+from source.data import TrainDataLoader, TestDataLoader
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--Dim", type=int)
-parser.add_argument("--GPU", type=str)
+parser.add_argument("--dim", type=int)
+parser.add_argument("--gpu", type=str)
+parser.add_argument("--dataset",type=str)
 args = parser.parse_args()
 
-os.environ['CUDA_VISIBLE_DEVICES']=args.GPU # 改GPU编号
+os.environ['CUDA_VISIBLE_DEVICES']=args.GPU
+file_path = "./benchmarks/" + args.dataset + "/"
 
 # dataloader for training
 train_dataloader = TrainDataLoader(
-	in_path = "./benchmarks/FB15K237/", 
+	in_path = file_path, 
 	nbatches = 100,
 	threads = 8, 
 	sampling_mode = "normal", 
@@ -28,7 +30,7 @@ train_dataloader = TrainDataLoader(
 	neg_rel = 0)
 
 # dataloader for test
-test_dataloader = TestDataLoader("./benchmarks/FB15K237/", "link")
+test_dataloader = TestDataLoader(file_path, "link")
 
 # define the model
 transe = TransE(
@@ -61,9 +63,9 @@ for i in range(10):
 	TimeList.append(dur)
 	ResultList.append(result)
 
-filename1 = "./resultRecord/TransE_FB15k237_Result_Dim" + str(transe.dim) + ".csv"
-filename2 = "./resultRecord/TransE_FB15k237_Time_Dim" + str(transe.dim) + ".csv"
-df1 = pd.DataFrame(data=ResultList)
-df1.to_csv(filename1, encoding='utf-8', index=False)
-df2 = pd.DataFrame(data=TimeList)
-df2.to_csv(filename2, encoding='utf-8', index=False)
+# filename1 = "./resultRecord/TransE_FB15k237_Result_Dim" + str(transe.dim) + ".csv"
+# filename2 = "./resultRecord/TransE_FB15k237_Time_Dim" + str(transe.dim) + ".csv"
+# df1 = pd.DataFrame(data=ResultList)
+# df1.to_csv(filename1, encoding='utf-8', index=False)
+# df2 = pd.DataFrame(data=TimeList)
+# df2.to_csv(filename2, encoding='utf-8', index=False)
