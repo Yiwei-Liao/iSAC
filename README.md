@@ -35,10 +35,5 @@ python fact_prediction_eval.py $relation
 
 ## If you use our code, please cite the paper
 ```
-@article{xiao2023reasoning,
-  title={Reasoning over the Air: A Reasoning-based Implicit Semantic-Aware Communication Framework},
-  author={Xiao, Yong and Liao, Yiwei and Li, Yingyu and Shi, Guangming and Poor, H Vincent and Saad, Walid and Debbah, Merouane and Bennis, Mehdi},
-  journal={arXiv preprint arXiv:2306.11229},
-  year={2023}
-}
+Yong Xiao, Yiwei Liao, Yingyu Li, Guangming Shi, H. Vincent Poor, Walid Saad, Merouane Debbah, and Mehdi Bennis, "Reasoning over the Air: A Reasoning-based Implicit Semantic-Aware Communication Framework," accepted at IEEE Transactions on Wireless Communications (TWC).
 ```
