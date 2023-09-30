@@ -1,6 +1,7 @@
 # Reasoning over the Air: A Reasoning-based Implicit Semantic Communication Framework
-Generative adversarial imitation learning-based solution(G-RML)
-Different from traditional communication solutions, the source encoder of the proposed G-RML does not focus only on sending as much of the useful messages as possible; but, instead, it tries to guide the destination user to learn a reasoning mechanism to map any observed explicit semantics to the corresponding implicit semantics characterized by a set of possible reasoning paths involving the hidden entities and relations that are most relevant to the semantic meaning. By applying G-RML, we prove that the destination user can accurately imitate the reasoning process of the source user and automatically generate the reasoning paths following the same probability distribution as the expert paths. Compared to the traditional semantic communication solutions, our proposed G-RML requires much less communication and computational resources and scales well to the scenarios involving the communication of complex semantic meanings with a large number of concepts and relations.
+The Generative Adversarial Imitation Learning-based Solution (G-RML) represents a paradigmatic shift in semantic communication by introducing a novel source encoder. Unlike traditional models that focus on maximizing the transmission of explicit semantic messages, G-RML aims to facilitate a reasoning mechanism at the destination user's end. This mechanism enables the mapping of observed explicit semantics to their corresponding implicit semantics, guided by hidden entities and relationships. The primary objective is to ensure that the destination user can accurately imitate the source user's reasoning process, generating paths that follow the same probability distribution as expert paths. Employing Generative Adversarial Imitation Learning techniques, G-RML operates with reduced computational and communication resources and scales efficiently to complex semantic scenarios. Empirical validation substantiates its effectiveness, rendering it superior in resource utilization and semantic versatility compared to traditional solutions. This advancement positions G-RML as a groundbreaking approach in the field of semantic communication, with implications for future research and potential standardization in emerging 6G technologies.
+
+
 ## How to use the code
 #### 0. install the environment
 ```shell
@@ -36,4 +37,5 @@ python fact_prediction_eval.py $relation
 ## If you use our code, please cite the paper
 ```
 Yong Xiao, Yiwei Liao, Yingyu Li, Guangming Shi, H. Vincent Poor, Walid Saad, Merouane Debbah, and Mehdi Bennis, "Reasoning over the Air: A Reasoning-based Implicit Semantic-Aware Communication Framework," accepted at IEEE Transactions on Wireless Communications (TWC).
+url: https://ieeexplore.ieee.org/document/10250170
 ```
